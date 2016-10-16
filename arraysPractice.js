@@ -56,14 +56,15 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 var nums = [1,2,3,6,22,98,45,23,22,12];
 //Write a function named evenFinder that is given nums as it's only argument and removes all values that aren't even from the given array.
 
-  function evenFinder(nums) {
-    for(var i = 0; i < nums.length; i++){
-      if(nums[i] % 2 !== 0) {
-        nums.splice(i);
-      }
+function evenFinder(nums) {
+  for(var i = 0; i < nums.length; i++){
+    if(nums[i] % 2 !== 0) {
+      nums.splice(i, 1);
     }
   }
-
+  return nums;
+}
+evenFinder(nums);
 
 //Next problem
 
@@ -99,13 +100,22 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 var getRandomArbitrary = function() {
   return Math.floor(Math.random() * (30 - 0) + 0);
 };
-// var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
+var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //Above you're given a function that will return a random number between 0 and 30.  There is also a commented out array full of numbers to help you visualize what your function will be receiving.
 
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
-
+  function finder(nums){
+    for(var i = 0; i < nums.length; i++){
+      if(nums[i] === getRandomArbitrary){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+  finder(numbers);
 
   //Code Here
 
@@ -119,9 +129,10 @@ var str = 'this is my sentence';
 
   //Code Here
   function reverse(str) {
-    str.reverse();
-    return str;
+    return str.split(' ').reverse().join(' ');
   }
+
+  reverse (str);
 
 //Next Problem
 
@@ -144,20 +155,21 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
   //Code Here
   function removeItems (myGroceryList, removeList) {
-    for(var i = 0; i < myGroceryList.length; i++) {
-      if(myGroceryList[i] === removeList) {
-        myGroceryList.splice(i);
+      for(var i = 0; i < myGroceryList.length; i++) {
+        if(myGroceryList[i] === removeList) {
+          delete myGroceryList[i];
+        }
       }
+      return myGroceryList;
     }
-    return myGroceryList;
-  }
 
-  function addItem(myGroceryList, addList){
-    for(var i = 0; i < addList.length; i++){
-      myGroceryList.push(addList[i]);
+    function addItem(myGroceryList, addList){
+      myGroceryList.push(addList);
+      return myGroceryList;
     }
-    return myGroceryList;
-  }
+
+  removeItems (myGroceryList, "pizza");
+  addItem (myGroceryList, "jerky");
 
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
@@ -178,6 +190,7 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
     }
     return newArray;
   }
+  maker();
 
 
 //Next Problem
@@ -286,14 +299,14 @@ Loop through your devMountainEmployees until you find cahlan, then remove him fr
   //Code Here
   function findHimself(devMountainEmployees){
     for(var i = 0; i < devMountainEmployees.length; i++){
-      if(devMountainEmployees[i]["name"] === "Cahlan"){
-        delete devMountainEmployees[i]["name"];
+      if(devMountainEmployees[i].name === "Cahlan"){
+        delete devMountainEmployees[i].name;
       }
     }
     return devMountainEmployees;
   }
 
-
+  findHimself(devMountainEmployees);
 
 //NEXT PROBLEM
 
